@@ -4,6 +4,9 @@ plugins {
 }
 
 android {
+    dataBinding {
+        enabled true
+    }
     namespace 'com.alexis.newapp'
     compileSdk 33
 
@@ -30,6 +33,7 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
 }
 
 dependencies {

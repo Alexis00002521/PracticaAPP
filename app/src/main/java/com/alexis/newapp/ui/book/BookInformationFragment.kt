@@ -6,15 +6,17 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.alexis.newapp.R
+import com.alexis.newapp.databinding.FragmentBookInformationBinding
 
 class BookInformationFragment : Fragment() {
-
+    private lateinit var binding: FragmentBookInformationBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_book_information, container, false)
+        binding = FragmentBookInformationBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
 }

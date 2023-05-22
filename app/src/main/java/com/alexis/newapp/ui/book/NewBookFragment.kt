@@ -12,6 +12,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.alexis.newapp.R
 import com.alexis.newapp.data.model.BookModel
+import com.alexis.newapp.databinding.FragmentNewBookBinding
 
 
 class NewBookFragment : Fragment() {
@@ -19,44 +20,47 @@ class NewBookFragment : Fragment() {
     private val bookViewModel: BookViewModel by activityViewModels {
         BookViewModel.Factory
     }
+    private lateinit var binding: FragmentNewBookBinding
 
-
-    private lateinit var sendInfo: Button
-    private lateinit var PetName: EditText
-    private lateinit var PetYear: EditText
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_new_book, container, false)
+         binding = FragmentNewBookBinding.inflate(inflater, container, false)
+        return binding.root
     }
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        bind()
-        sendInfo.setOnClickListener(){
-            addBook()
+        setViewModel()
+        observeStatus()
+    }
+
+    private fun setViewModel() {
+        binding.viewmodel = bookViewModel
+    }
+    private fun observeStatus() {
+        bookViewModel.status.observe(viewLifecycleOwner) { status ->
+            when {
+                status.equals(BookViewModel.WRONG_INFORMATION) -> {
+                    Log.d(APP_TAG, status)
+                    bookViewModel.clearStatus()
+                }
+                status.equals(BookViewModel.BOOK_CREATED) -> {
+                    Log.d(APP_TAG, status)
+                    Log.d(APP_TAG, bookViewModel.getBooks().toString())
+
+                    bookViewModel.clearStatus()
+                    findNavController().popBackStack()
+                }
+            }
         }
     }
-
-    private fun addBook() {
-        val name = PetName.text.toString()
-        val year = PetYear.text.toString()
-
-        val Book = BookModel(name,year)
-
-         bookViewModel.addBooks(Book)
-
-        Log.d("NewBookFragment", bookViewModel.getBooks().toString())
-
-        findNavController().popBackStack()
-    }
-    private fun bind() {
-        sendInfo = view?.findViewById(R.id.BTN_send_Pet) !!
-        PetName = view?.findViewById(R.id.ET_name) !!
-        PetYear = view?.findViewById(R.id.ET_year) !!
+    companion object {
+        const val APP_TAG = "APP TAG"
     }
 }
 

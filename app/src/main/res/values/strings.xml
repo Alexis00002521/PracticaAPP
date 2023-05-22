@@ -9,4 +9,5 @@
     <string name="new_book_String">New Book</string>
     <string name="pet_name_string">Pet Name</string>
     <string name="send_string">send</string>
+    <string name="pet_year_old">Pet Year Old</string>
 </resources>
