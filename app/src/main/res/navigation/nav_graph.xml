@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/listBooksFragment"
-        android:name="com.alexis.newapp.ListBooksFragment"
+        android:name="com.alexis.newapp.ui.book.ListBooksFragment"
         android:label="fragment_list_books"
         tools:layout="@layout/fragment_list_books" >
         <action
@@ -19,12 +19,12 @@
     </fragment>
     <fragment
         android:id="@+id/newBookFragment"
-        android:name="com.alexis.newapp.NewBookFragment"
+        android:name="com.alexis.newapp.ui.book.NewBookFragment"
         android:label="fragment_new_book"
         tools:layout="@layout/fragment_new_book" />
     <fragment
         android:id="@+id/bookInformationFragment"
-        android:name="com.alexis.newapp.BookInformationFragment"
+        android:name="com.alexis.newapp.ui.book.BookInformationFragment"
         android:label="fragment_book_information"
         tools:layout="@layout/fragment_book_information" />
 </navigation>
