@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/listBooksFragment">
+
+    <fragment
+        android:id="@+id/listBooksFragment"
+        android:name="com.alexis.newapp.ListBooksFragment"
+        android:label="fragment_list_books"
+        tools:layout="@layout/fragment_list_books" >
+        <action
+            android:id="@+id/action_listBooksFragment_to_bookInformationFragment"
+            app:destination="@id/bookInformationFragment" />
+        <action
+            android:id="@+id/action_listBooksFragment_to_newBookFragment"
+            app:destination="@id/newBookFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/newBookFragment"
+        android:name="com.alexis.newapp.NewBookFragment"
+        android:label="fragment_new_book"
+        tools:layout="@layout/fragment_new_book" />
+    <fragment
+        android:id="@+id/bookInformationFragment"
+        android:name="com.alexis.newapp.BookInformationFragment"
+        android:label="fragment_book_information"
+        tools:layout="@layout/fragment_book_information" />
+</navigation>

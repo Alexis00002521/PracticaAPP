@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">New APP</string>
     <string name="hello_world">Hello World</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="information_book_string">Information Book</string>
+    <string name="home_book_string">Home Book</string>
+    <string name="fab_content_desc">float button</string>
+    <string name="new_book_String">New Book</string>
 </resources>
