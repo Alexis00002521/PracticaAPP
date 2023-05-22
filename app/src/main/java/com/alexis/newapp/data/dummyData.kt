@@ -11,7 +11,7 @@ val name2 = "Blade Runner 2049"
 val year2 = "12"
 
 
-var movies = mutableListOf(
+var books = mutableListOf(
     BookModel(name, year),
     BookModel(name2, year2)
 )

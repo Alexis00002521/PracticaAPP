@@ -7,4 +7,6 @@
     <string name="home_book_string">Home Book</string>
     <string name="fab_content_desc">float button</string>
     <string name="new_book_String">New Book</string>
+    <string name="pet_name_string">Pet Name</string>
+    <string name="send_string">send</string>
 </resources>
